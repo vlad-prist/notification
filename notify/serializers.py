@@ -12,6 +12,12 @@ class RecipientSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Необходимо указать почту или телеграм-ник')
         return data
 
+    def validate_recipients(self, value):
+        for recipient in value:
+            if not ("@" in recipient or recipient.isdigit()):
+                raise serializers.ValidationError('Некорректные данные получателя')
+        return value
+
 
 class MessageSerializer(serializers.Serializer):
     message_text = serializers.CharField(max_length=1024)
