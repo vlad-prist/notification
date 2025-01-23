@@ -1,8 +1,7 @@
 from celery import shared_task
-from datetime import timedelta
 from django.utils.timezone import now
-from .models import Message, MessageLog, Recipient
-from .services import send_telegram_message, send_email_message
+from notify.models import Message, MessageLog
+from notify.services import send_telegram_message, send_email_message
 
 
 @shared_task

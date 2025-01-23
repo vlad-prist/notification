@@ -27,10 +27,6 @@ class Recipient(BaseModel):
         if not self.email and not self.telegram:
             raise ValidationError('Необходимо указать почту или телеграм-ник')
 
-    # def save(self, *args, **kwargs):
-    #     self.clean()
-    #     super().save(*args, **kwargs)
-
     def __str__(self):
         return f'{self.name} ({self.email or self.telegram})'
 

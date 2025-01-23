@@ -1,26 +1,25 @@
 from rest_framework import serializers
-from .models import Recipient, Message
+from notify.models import Recipient, Message
 
 
 class RecipientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipient
-        fields = '__all__'
+        fields = ['name', 'email', 'telegram']
 
     def validate(self, data):
         if not data.get('email') and not data.get('telegram'):
             raise serializers.ValidationError('Необходимо указать почту или телеграм-ник')
         return data
 
-    def validate_recipients(self, value):
-        for recipient in value:
+    def validate_recipients(self, data):
+        for recipient in data:
             if not ("@" in recipient or recipient.isdigit()):
                 raise serializers.ValidationError('Некорректные данные получателя')
-        return value
+        return data
 
 
-class MessageSerializer(serializers.Serializer):
-    message_text = serializers.CharField(max_length=1024)
+class MessageSerializer(serializers.ModelSerializer):
     recipients = serializers.PrimaryKeyRelatedField(many=True, queryset=Recipient.objects.all())
     delay = serializers.IntegerField(min_value=0, max_value=2)
     scheduled_time = serializers.DateTimeField(

@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
-from django.urls import path, include
-from .views import NotifyViewSet, RecipientViewSet
-from .apps import NotifyConfig
+from django.urls import path
+from notify.views import NotifyViewSet, RecipientViewSet
+from notify.apps import NotifyConfig
 
 
 app_name = NotifyConfig.name

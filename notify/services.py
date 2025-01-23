@@ -1,7 +1,7 @@
 import requests
+from django.conf import settings
 from django.core.mail import send_mail
 from rest_framework import status
-from config import settings
 
 
 def send_telegram_message(message_text, telegram_id):

@@ -1,9 +1,9 @@
 from rest_framework import viewsets
 from django.utils.timezone import localtime, now
-from datetime import timedelta, datetime
-from .serializers import RecipientSerializer, MessageSerializer
-from .models import Recipient, Message
-from .tasks import send_notify
+from datetime import timedelta
+from notify.serializers import RecipientSerializer, MessageSerializer
+from notify.models import Recipient, Message
+from notify.tasks import send_notify
 
 
 class NotifyViewSet(viewsets.ModelViewSet):
