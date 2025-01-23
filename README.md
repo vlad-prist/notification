@@ -88,12 +88,3 @@ $ celery -A config worker --loglevel=info -P eventlet
 7. **Автодокументация:**
     - Реализована автогенерируемая документация API с использованием Swagger и/или ReDoc.
 
-
-
-## Источники
-
-1. [Документация по фреймворку и библиотекам Django](https://django.fun/)
-2. DRF - Сериализаторы. Документация - [Сериализаторы](https://ilyachch.gitbook.io/django-rest-framework-russian-documentation/overview/navigaciya-po-api/serializers)
-3. Celery - Документация (eng) - [Using Celery with Django](https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html)
-4. Celery - Периодические задачи (eng) - [Periodic Tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html)
-5. Интерактивная документация API. Официальная документация - [drf-yasg](https://drf-yasg.readthedocs.io/en/stable/readme.html)
