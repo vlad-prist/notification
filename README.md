@@ -87,4 +87,3 @@ $ celery -A config worker --loglevel=info -P eventlet
     - Соблюдены стандарты PEP8 для Python кода.
 7. **Автодокументация:**
     - Реализована автогенерируемая документация API с использованием Swagger и/или ReDoc.
-
